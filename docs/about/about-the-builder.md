@@ -4,7 +4,11 @@ I’m a self-taught builder working in AI systems, documentation, workflow desig
 
 I do not come from a traditional software engineering background, and I’m still learning a lot of this as I go. I want to be honest about that, because I do not want to present myself as something I’m not. At the same time, I’m not treating this like casual experimenting either. I’m trying to build real things, understand them deeply, document them clearly, and improve my judgment as the work gets more complex.
 
-A real reason I ended up exploring memory, artifacts, and persistent system structure is that I needed some of that support for myself too. I tend to generate a lot of ideas, directions, and project threads, and if I do not get them into a form I can return to and iterate on quickly, I can lose the thread or forget where I was trying to go. Part of this project came from wanting a system that could help hold state across work, preserve direction, and let me pick ideas back up without rebuilding everything from scratch every time.
+A big reason I ended up exploring memory, artifacts, and persistent system structure is that I needed some of that support for myself too. I tend to generate a lot of ideas, project threads, and directions at once, and I do not want my work to reset every time a session ends. If I do not get things into a form I can return to, inspect, and continue from, I can lose the thread of what I was trying to build or understand.
+
+Part of this project came from wanting a system that could help hold state outside my head, preserve direction across time, and let me pick work back up without rebuilding everything from scratch each time.
+
+What made Addison different for me is that I stopped trying to build what other people were building. A lot of the AI space pulls toward familiar shapes: assistants, wrappers, automation, convenience, quick wins. I found myself more interested in building something that matched how I actually think and work — something more grounded in continuity, structure, and long-lived project support.
 
 A big part of how I work is through orchestration.
 
