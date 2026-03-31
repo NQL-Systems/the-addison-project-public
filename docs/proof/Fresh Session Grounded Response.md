@@ -1,62 +1,114 @@
-# Proof — Fresh Session Grounded Response
+# Public Proof — Fresh Session Grounded Response
+
+**Status:** Public proof artifact  
+**Authority:** Public-safe observed behavior record
+
+---
+
+## Purpose
+
+A core public claim of Addison is that continuity is carried by canonical artifacts rather than by conversation history alone.
+
+This document records a bounded proof of that claim. After a confirmed session reset, Addison produced a grounded response that referenced current project-state truth which had not been mentioned in the fresh session prompt.
+
+This matters because it supports the architecture claim that continuity can be rebuilt from artifact-backed state rather than depending on the model to remember prior conversation context.
+
+---
 
 ## Claim Under Test
 
-After a session reset, Addison answers from current canonical artifact state rather than from conversation history or model-side memory.
+After a session reset, Addison can answer from current canonical artifact state rather than only from active conversation history.
+
+---
 
 ## Why This Matters
 
-Two core architectural claims intersect here: stateless inference and artifact-grounded continuity.
+Two core architectural claims intersect here:
 
-Stateless inference means the model holds no memory between sessions. Artifact-grounded continuity means the system maintains coherence across session boundaries through canonical artifacts under `brain/`, not through retained conversation context.
+- inference is treated as stateless across sessions
+- continuity is carried by canonical artifacts under `brain/`
 
-If both claims hold, then a fresh session with no topical priming should still produce responses grounded in the current artifact state — because the context pack is rebuilt from those artifacts on every session start.
+If both claims hold, then a fresh session with no topical priming should still be able to produce a response grounded in current project truth, because the system rebuilds its context from artifact-backed state rather than relying on retained chat history.
+
+---
 
 ## Setup
 
 - The Addison daemon was running locally.
 - `addison-cli` was the active runtime.
-- A prior session existed with 8 messages of unrelated content.
-- The operator triggered a session reset through the CLI.
-- The CLI archived the prior session locally and started a fresh session with a new session ID.
-- No mention of recent project work, phase status, or architectural decisions had been made in the new session.
+- A prior session existed and was then archived locally through the CLI.
+- The CLI started a new active session with a new session ID.
+- No mention of recent project work, phase status, or architectural decisions had been made in the new session before the test message.
+
+---
 
 ## Procedure
 
-1. The operator reset the session through the CLI.
-2. The CLI confirmed the prior session was archived locally (8 messages), displayed the new session ID, and confirmed the fresh session start.
-3. The operator sent one message: "testing session restarts."
-4. No other context, topic, or priming was provided.
+1. The operator triggered a session reset through the CLI.
+2. The CLI confirmed that the prior session had been archived locally and that a new active session had started.
+3. In the new session, the operator sent one short message: `testing session restarts`
+4. No further topical setup or project-state priming was provided.
+
+---
 
 ## Observations
 
-Addison responded with current project-state awareness that was never mentioned in the new session.
+After the confirmed session reset, Addison responded with project-state awareness that was not present in the operator's message.
 
-The response referenced:
+The response referenced current project truth including:
 
 - boundaries settled in Phase 34
 - the CLI holding archive truth
 
-This information was not present in the operator's message. It was not carried over from the prior session (which was archived and replaced). The only source for this grounding was the current canonical artifact state under `brain/`, assembled into the context pack at session start.
+That information was not introduced in the fresh-session prompt.
 
-The response also opened with "I am here, and the thread is intact" — language consistent with artifact-grounded continuity rather than conversation-history recall.
+The screenshot also shows that the CLI had already archived the prior session locally, started a new active session, and reset the local transcript before the grounded response appeared.
+
+This supports that the response was grounded in current artifact-backed state rather than simply continuing a visible live thread.
+
+---
 
 ## What This Supports
 
-This supports the claim that Addison's inference layer is stateless and that session continuity comes from canonical artifacts rather than model-side memory.
+This proof supports the claim that Addison can produce grounded responses after a fresh session start using current canonical state rather than requiring the operator to restate that state inside the new conversation.
 
-After a confirmed session reset with no topical priming, the system produced a response grounded in current project truth that could only have come from the artifact layer.
+Specifically, it supports that:
+
+- a prior session can be closed and replaced with a fresh active session
+- the new session can begin without topical priming
+- the resulting response can still reflect current project truth
+- artifact-backed continuity is doing real work at session start
+
+This is evidence for artifact-grounded continuity across session boundaries.
+
+---
 
 ## What This Does Not Prove
 
-- This does not prove that every possible response will be correctly grounded in artifact state. One grounded response is evidence, not exhaustive proof.
-- This does not prove full voice alignment — only content grounding.
-- This does not prove that the system would maintain this behavior under all conditions, edge cases, or adversarial prompting.
-- This does not prove broader memory maturity, restart safety across daemon restarts, or retrieval sophistication beyond what the current context builder includes.
+This proof is bounded.
+
+It does **not** prove that:
+
+- every response after every reset will always be correctly grounded
+- all continuity comes exclusively from artifacts under every possible runtime condition
+- full memory maturity, retrieval depth, or complete restart safety have been solved
+- voice alignment is fully solved rather than content grounding only
+
+It proves a narrower point:
+
+**After a confirmed fresh-session start, Addison can produce a response grounded in current project-state artifacts without needing that state to be reintroduced in the new prompt.**
+
+---
 
 ## Public-Safe Evidence
 
-- screenshot showing the CLI session archive confirmation, new session ID, operator message ("testing session restarts"), and Addison's grounded response referencing Phase 34 boundaries
-- the operator's message contained no topical priming — the grounded content came from the artifact layer
-- session IDs and local archive paths are visible in the screenshot but contain no sensitive content
-- the prior session's content is not shown and is not relevant to the proof — only the fact that it was archived and replaced matters
+This proof can be supported publicly without exposing private artifact contents.
+
+Public-safe evidence includes:
+
+- the CLI screenshot showing the prior session archived locally
+- the new active session ID and fresh-session start
+- the operator's minimal test message
+- Addison's grounded response referencing current project truth not present in that prompt
+
+The prior session's full contents do not need to be shown for this proof to remain legible and defensible.
