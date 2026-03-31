@@ -1,57 +1,106 @@
-# Proof — Operator-Controlled Model Switching
+# Public Proof — Operator-Controlled Model Switching
+
+**Status:** Public proof artifact  
+**Authority:** Public-safe observed behavior record
+
+---
+
+## Purpose
+
+A core public claim of Addison is that the inference model is a replaceable utility rather than a hidden authority layer.
+
+This document records a bounded proof of that claim. During live use, the operator switched Addison across multiple inference models, and an independent provider log showed requests from the same application reaching different models from different providers.
+
+This matters because it supports the claim that model choice is operator-controlled and materially real, not just a cosmetic label inside the runtime.
+
+---
 
 ## Claim Under Test
 
-The Addison operator can switch the active inference model at runtime. Model switches are real — they result in actual inference calls to the requested model through the configured provider.
+Addison can be directed by the operator to use different inference models, and those model changes result in real requests to the selected provider/model path.
+
+---
 
 ## Why This Matters
 
-Addison's architecture treats the inference model as a replaceable utility. The daemon owns runtime truth about which model is active, and switches are operator-initiated through the CLI or other runtime surfaces. The system is not locked to a single model or provider.
+Addison's architecture treats the model as a replaceable reasoning tool rather than the source of system continuity or authority.
 
-If this claim holds, it means:
+If this claim holds, then:
 
-- the operator controls which model is doing the thinking
-- model switches are real state changes, not cosmetic labels
-- the system works across multiple providers without architectural change
-- no hidden routing or automatic fallback is involved — the operator decides
+- the operator controls which model is used
+- model switches are real changes in the live inference path
+- the system is not locked to one provider or one model family
+- model identity is not merely presentation text inside the client
+
+This reinforces the broader architecture claim that the daemon and artifact-backed system hold continuity, while the model remains interchangeable.
+
+---
 
 ## Setup
 
 - The Addison daemon was running locally.
-- Inference requests are routed through OpenRouter, which supports multiple upstream model providers.
-- The operator switched models during normal use through the runtime model-switch surface.
-- OpenRouter independently logs each request with the provider, model, timestamp, and requesting application.
+- Inference traffic was routed through OpenRouter.
+- The operator used Addison normally while changing the active model across live use.
+- OpenRouter independently recorded requests with timestamp, provider/model, and application identity.
+
+---
 
 ## Observations
 
-The OpenRouter activity log shows inference requests from the Addison application hitting three different models from three different providers on the same day:
+The OpenRouter activity log shows requests from the **Addison** application reaching three different models from three different providers on the same day:
 
-- **Gemini 3.1 Pro Preview** (Google) — Mar 29, 06:55
-- **Grok 4.1 Fast** (xAI) — Mar 29, 08:14
-- **GPT-5.3 Chat** (OpenAI) — Mar 29, 09:39
+- **Gemini 3.1 Pro Preview** — Google
+- **Grok 4.1 Fast** — xAI
+- **GPT-5.3 Chat** — OpenAI
 
-All three requests are logged under the same application name ("Addison"), confirming they came from the same system through the same inference pipeline.
+All three entries are associated with the same application name: **Addison**.
 
-The sequence shows the operator switching across providers over a normal working session. The switches were not simulated or staged — they occurred during real use.
+This shows that the live inference path was not fixed to one provider or one model. The system was used with multiple operator-selected models, and those requests were recorded by the external provider layer rather than only by Addison's own local reporting.
+
+---
 
 ## What This Supports
 
-This supports the claim that Addison's model switching is real and operator-controlled:
+This proof supports the claim that Addison's model switching is real and operator-controlled.
 
-- Three different models from three different providers were used through the same system in a single session.
-- OpenRouter's independent logging confirms the requests reached the declared models.
-- The application identity ("Addison") is consistent across all three, confirming a single system rather than separate tools.
-- The switches correspond to the Phase 18 operator-control semantics: the operator initiates, the daemon routes, and runtime truth reflects the active model.
+Specifically, it supports that:
+
+- the same system can send inference requests through multiple model/provider paths
+- those requests are externally visible in independent provider logs
+- model switching is not only a UI label change inside Addison
+- the model remains a replaceable utility within the system architecture
+
+This is evidence for operator-controlled model switching in the bounded sense that model/provider changes can be initiated in live use and verified outside the local runtime.
+
+---
 
 ## What This Does Not Prove
 
-- This does not prove that model switching is seamless or that context is perfectly preserved across switches.
-- This does not prove that every available model works equally well with Addison's context pack.
-- This does not prove automatic fallback or intelligent model selection — the architecture explicitly does not claim those.
-- This does not prove that the switch confirmation flow is fully hardened in every runtime surface.
+This proof is bounded.
+
+It does **not** prove that:
+
+- model switching is seamless in every runtime or session condition
+- context is preserved perfectly across all switches
+- every available model works equally well with Addison's context pack
+- the switch-confirmation flow is fully hardened across every runtime surface
+- automatic fallback, hidden routing, or autonomous model selection exist
+
+It proves a narrower point:
+
+**Addison can be used with different operator-selected models, and those selections result in real requests to different provider/model paths.**
+
+---
 
 ## Public-Safe Evidence
 
-- OpenRouter activity log screenshot showing three different models from three different providers, all under the Addison application name, with timestamps on the same day
-- no API keys, token counts, cost data, or conversation content is visible in the log
-- the evidence is from a third-party provider's independent logging, not from Addison's own self-reporting
+This proof can be supported publicly without exposing private artifact contents or sensitive provider data.
+
+Public-safe evidence includes:
+
+- an OpenRouter activity-log screenshot
+- visible provider/model entries across multiple requests
+- the shared application identity (`Addison`)
+- timestamps showing the requests occurred during the same day of live use
+
+No API keys, token details, cost data, or conversation content need to be shown in order to support this proof.
