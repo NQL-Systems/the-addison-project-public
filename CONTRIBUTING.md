@@ -64,7 +64,7 @@ This project is intentionally trying to avoid inflated language, vague futurism,
 - write clearly and directly for an outside reader
 - avoid hype language, marketing tone, or overstated certainty
 - keep internal links accurate
-- preserve document roles instead of quietly widening them
+- preserve document roles instead of quietly widening them — navigation docs, architecture docs, proof docs, boundary docs, and contributor guidance serve different purposes and should not be collapsed together
 
 If a sentence sounds stronger than the available public surface can support, it should probably be tightened.
 

@@ -1,6 +1,6 @@
 # Addison Architecture
 
-**Status:** Public-facing architecture overview  
+**Status:** Public-facing architecture overview
 **Authority:** Public-safe technical orientation
 
 ---
@@ -59,9 +59,9 @@ These runtimes are intentionally **non-authoritative**. They do not replace the 
 
 ### Layer 3 — Optional Presentation Adapters
 
-Subordinate surfaces that may enhance expression or presentation.
+Subordinate surfaces that may enhance expression or presentation, including optional voice synthesis and avatar presentation.
 
-They can make the system easier or more expressive to use, but they are not required for the core system to remain coherent.
+They can make the system more expressive to use, but they are not required for the core system to remain coherent. The system degrades truthfully when these adapters are unavailable.
 
 ---
 

@@ -1,6 +1,6 @@
 # PUBLIC_STATUS
 
-**Status:** Current public status surface  
+**Status:** Current public status surface
 **Authority:** Public-facing status summary
 
 ---
@@ -21,9 +21,25 @@ The current public repo supports these bounded claims.
 
 ### Architectural shape is real and deliberate
 
-The daemon-authoritative core, artifact-backed memory posture, deterministic context construction, and stateless inference model are not being presented as vague future direction. They describe the actual intended system shape being documented publicly here.
+The daemon-authoritative core, artifact-backed memory posture, deterministic context construction, and stateless inference model are not being presented as vague future direction. They describe the actual system shape as it exists today.
 
 See [ARCHITECTURE.md](ARCHITECTURE.md).
+
+### The system supports mode-aware operation
+
+The daemon owns mode state for multiple operational modes. Mode truth flows through deterministic context assembly — the context builder selects mode-relevant artifacts, loads mode-specific behavioral guidance, and shapes the prepared context before inference. Downstream runtimes consume daemon-confirmed mode state without owning it. Mode switching is explicit, operator-initiated, and daemon-confirmed.
+
+### The system includes governed action boundaries
+
+Meaningful system action is subject to a governed proposal lifecycle. The system includes a tool-eligibility framework that gates which governed actions are available under which modes, explicit operator-approval requirements before governed actions execute, and bounded governed memory movement for operator-directed artifact promotion and demotion. Ordinary conversation and runtime presentation remain ungated.
+
+### The system supports daemon-backed voice synthesis
+
+Voice is optional and additive — the system is fully functional without it. When enabled, the daemon owns synthesis with a primary/fallback provider posture and truthful degraded handling when providers are unavailable. Runtimes receive audio downstream without knowing or caring which provider generated it.
+
+### The system supports multiple operator surfaces
+
+Multiple operator runtimes connect to the daemon, including a primary CLI, a retained broader cockpit, and an optional desktop presentation surface. All remain downstream from daemon-owned truth. None are authoritative over system state.
 
 ### The project is grounded in bounded public proof, not only description
 
@@ -46,6 +62,7 @@ This repository does not currently claim:
 - model-owned memory
 - broad publication of live private artifact trees
 - exhaustive exposure of internal governance or runtime detail
+- integrated speech/motion choreography or lipsync
 - that everything true in the private workspace is already visible here
 
 If a capability is not clearly shown or bounded in this public surface, it should not be assumed by implication.
@@ -56,7 +73,21 @@ If a capability is not clearly shown or bounded in this public surface, it shoul
 
 The public repository remains intentionally partial.
 
-That means some things may be real in the broader project while still remaining out of scope for the public mirror at the current stage. Deferred here does not automatically mean nonexistent. It means not currently claimed as part of the bounded public surface.
+Deferred here does not mean nonexistent. It means not currently claimed as part of the bounded public surface.
+
+Areas that remain deferred from public claim include but are not limited to:
+
+- full source publication
+- broader desktop shell maturity claims beyond active-but-limited
+- integrated speech/motion choreography, lipsync, and viseme behavior
+- autonomous planning loops
+- automation eligibility gating
+- durable mode-memory population
+- exhaustive internal governance exposure
+- archive browsing, search, or transcript replay
+- broader cross-platform runtime hardening
+
+These may be real in the private workspace at various stages of development. They are not currently part of the bounded public surface.
 
 ---
 

@@ -31,6 +31,7 @@ At a high level, the system has three layers:
 - a **daemon** that owns runtime authority and system boundaries
 - an **artifact layer** (`brain/`) that holds persistent memory and continuity surfaces
 - **operator runtimes** that connect to the daemon and provide bounded control surfaces
+- **optional presentation adapters** that can enhance expression — including voice synthesis and avatar presentation — without owning system truth
 
 Inference is called into this structure on demand. It does not own system state, and it does not serve as the continuity layer.
 
@@ -48,7 +49,7 @@ For the distinction between the system and the workflow, see [addison-and-wbtsr.
 
 This repository includes a bounded public proof surface. It is intentionally narrow.
 
-The goal is not to claim that every internal implementation detail is public. The goal is to show enough observed evidence that the public description remains grounded.
+The goal is not to claim that every internal implementation detail is public. The goal is to show enough observed evidence that the public description remains grounded rather than purely aspirational.
 
 For the current proof and claim boundary, see [PUBLIC_STATUS.md](PUBLIC_STATUS.md).
 
@@ -58,6 +59,7 @@ For the current proof and claim boundary, see [PUBLIC_STATUS.md](PUBLIC_STATUS.m
 - [PUBLIC_STATUS.md](PUBLIC_STATUS.md) — current public claims, proof posture, and deferred areas
 - [addison-and-wbtsr.md](addison-and-wbtsr.md) — distinction between the system and the workflow
 - [CONTRIBUTING.md](CONTRIBUTING.md) — how to contribute without weakening the public boundary
+- [docs/](docs/) — boundaries, examples, and proof artifacts
 
 ## Repository Boundary
 
