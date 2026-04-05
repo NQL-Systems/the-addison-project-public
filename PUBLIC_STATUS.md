@@ -1,6 +1,6 @@
 # PUBLIC_STATUS
 
-**Status:** Current public status surface
+**Status:** Current public status surface  
 **Authority:** Public-facing status summary
 
 ---
@@ -9,42 +9,59 @@
 
 This document exists to keep the public Addison surface honest.
 
-It records what this repository currently proves, what remains deferred, and where the boundary is between public claims and private development reality.
+It records what this repository currently supports as a public claim, what remains deferred, and where the boundary is between public explanation and private development reality.
 
-If this file conflicts with the architecture documentation or higher-authority public materials, this file is stale and should be corrected.
-
----
-
-## 2. What Is Currently Proven
-
-The public surface currently supports these claims:
-
-**Architectural shape is real and deliberate.** The daemon-authoritative core, artifact-backed memory, deterministic context construction, and stateless inference model are not aspirational descriptions. They reflect the system as built. See [ARCHITECTURE.md](ARCHITECTURE.md) for the full technical overview.
-
-**Artifact-gated startup has been observed.** The system's runtime path depends on the artifact layer being present, and once startup completes, the system answers from locally grounded artifacts rather than falling back to generic model behavior. See [Artifact-Gated Startup](artifact-gated-startup.md) for the proof writeup.
-
-**The system is experimental.** Addison is a real system under active development, but it is not complete or production-ready. This repository does not present it as either.
+If this file conflicts with higher-authority public materials in the repo, this file is stale and should be corrected.
 
 ---
 
-## 3. What Is Explicitly Deferred
+## 2. What The Public Surface Currently Supports
 
-The public repository does not currently claim:
+The current public repo supports these bounded claims.
+
+### Architectural shape is real and deliberate
+
+The daemon-authoritative core, artifact-backed memory posture, deterministic context construction, and stateless inference model are not being presented as vague future direction. They describe the actual intended system shape being documented publicly here.
+
+See [ARCHITECTURE.md](ARCHITECTURE.md).
+
+### The project is grounded in bounded public proof, not only description
+
+This public mirror is intentionally narrow, but it is not meant to be pure narrative. The repo's proof posture exists to keep the public explanation tied to observed system behavior rather than floating free as architecture language alone.
+
+### The system is experimental
+
+Addison is a real system under active development, but this public repository does not present it as complete, production-ready, or fully exposed.
+
+---
+
+## 3. What This Public Repo Explicitly Does Not Claim
+
+This repository does not currently claim:
 
 - full source or implementation exposure
 - production readiness
 - autonomous planning loops
 - hidden routing or hidden authority behavior
 - model-owned memory
-- broad public release of live private artifact trees
-- exhaustive publication of internal governance or runtime details
+- broad publication of live private artifact trees
+- exhaustive exposure of internal governance or runtime detail
+- that everything true in the private workspace is already visible here
 
-If a capability is not clearly shown or documented here, it should not be assumed from wording, reputation, or implication.
+If a capability is not clearly shown or bounded in this public surface, it should not be assumed by implication.
 
 ---
 
-## 4. What May Change
+## 4. What Remains Deferred
 
-This is a living status surface. As the project develops, proof artifacts may be added, deferred items may move to proven, and the public boundary may shift.
+The public repository remains intentionally partial.
 
-Changes to this document should follow the same discipline as the rest of the public surface: explicit, bounded, and honest about what is real.
+That means some things may be real in the broader project while still remaining out of scope for the public mirror at the current stage. Deferred here does not automatically mean nonexistent. It means not currently claimed as part of the bounded public surface.
+
+---
+
+## 5. Maintenance Rule
+
+This is a living public status surface.
+
+As the project develops, public proof may expand, deferred areas may move, and wording may need tightening. Changes to this file should stay explicit, bounded, and honest about what is real versus what is merely private, deferred, or still under development.

@@ -2,61 +2,70 @@
 
 Addison is a local, daemon-backed state system built around persistent artifacts, deterministic context construction, and stateless inference.
 
-This repository is a bounded public surface for the project. It contains public-safe documentation, proof artifacts, and inert examples. It does not contain live private memory, operator-specific identity, or the full private development authority.
+This repository is a bounded public surface for the project. It contains public-safe documentation, bounded proof framing, and contributor-facing orientation. It does not contain live private memory, operator-specific identity, or the full private development authority.
 
-## Why It Exists
+## Why This Repo Exists
 
 Most AI systems keep continuity inside the conversation or inside the model.
 
 Addison is built in the opposite direction. It keeps memory, continuity, and system truth in persistent artifacts, uses deterministic context construction, and treats inference as a replaceable tool rather than as the system itself.
 
-Part of that exploration came from a practical need to externalize ideas, preserve project state, and return to active lines of thought without rebuilding everything from scratch each time.
-
-The goal is to explore a system where intelligence can be applied without surrendering control of state, boundaries, or operator authority.
+This public repository exists to make that project legible without collapsing the boundary between public-safe explanation and private live system state.
 
 ## What Addison Is
 
-Addison is a personal agent system where a local daemon owns system state, memory lives in persistent artifacts under a `brain/` directory, and the model is a stateless inference tool that gets replaced between sessions without losing continuity. The human operator remains the governing authority over all meaningful action. It is not a chatbot wrapper, a hidden-autonomy system, or a production-ready platform.
+Addison is a personal agent system where:
+
+- a local daemon owns runtime authority
+- persistent artifacts carry durable continuity
+- deterministic context construction happens outside the model
+- inference is used as a stateless reasoning tool
+- the human operator remains the governing authority over meaningful action
+
+It is not a chatbot wrapper, not a hidden-autonomy system, and not a production-ready platform.
 
 ## System Shape
 
 At a high level, the system has three layers:
 
-- A **daemon** that owns runtime authority and enforces system boundaries.
-- An **artifact layer** (`brain/`) that holds persistent memory, identity, and continuity surfaces.
-- A **CLI/TUI interface** that serves as the operator's primary control surface.
+- a **daemon** that owns runtime authority and system boundaries
+- an **artifact layer** (`brain/`) that holds persistent memory and continuity surfaces
+- **operator runtimes** that connect to the daemon and provide bounded control surfaces
 
-Inference is called into this structure on demand. It does not own state, and it does not persist between sessions.
+Inference is called into this structure on demand. It does not own system state, and it does not serve as the continuity layer.
 
-For full architectural detail, see [ARCHITECTURE.md](ARCHITECTURE.md).
+For the public architecture overview, see [ARCHITECTURE.md](ARCHITECTURE.md).
 
 ## Method
 
 Addison is the system. WBTSR is the workflow used to build it.
 
-WBTSR stands for **Work, Build, Truth, Session, Rehydrate**. It is a human-governed development method based on bounded work slices, explicit truth surfaces, separate builder and auditor roles, and restart-safe rehydration. It emerged from the Addison build process but is maintained as a separate, portable methodology.
+WBTSR stands for **Work, Build, Truth, Session, Rehydrate**. It is a human-governed development method built around bounded work slices, explicit truth surfaces, separate production and review roles, and restart-safe rehydration.
 
-For more on the relationship, see [Addison and WBTSR](addison-and-wbtsr.md).
+For the distinction between the system and the workflow, see [addison-and-wbtsr.md](addison-and-wbtsr.md).
 
-## Public Proof
+## Public Proof Posture
 
-This repository includes a small set of bounded proof surfaces that show observed system behavior rather than just design claims.
+This repository includes a bounded public proof surface. It is intentionally narrow.
 
-The primary proof artifact is **artifact-gated startup** — a demonstration that the system's runtime path depends on the artifact layer being present, and that once startup completes, the system answers from locally grounded artifacts rather than falling back to generic model behavior. See [Artifact-Gated Startup](artifact-gated-startup.md) for the full writeup.
+The goal is not to claim that every internal implementation detail is public. The goal is to show enough observed evidence that the public description remains grounded.
 
-## Documentation
+For the current proof and claim boundary, see [PUBLIC_STATUS.md](PUBLIC_STATUS.md).
 
-- [ARCHITECTURE.md](ARCHITECTURE.md) — Technical architecture: daemon, artifact layer, context construction, and inference.
-- [Addison and WBTSR](addison-and-wbtsr.md) — The distinction between the system and the workflow.
-- [Artifact-Gated Startup](artifact-gated-startup.md) — Proof artifact showing runtime dependency on the artifact layer.
-- [PUBLIC_STATUS.md](PUBLIC_STATUS.md) — What this repo currently proves, what remains deferred, and what it does not claim.
-- [CONTRIBUTING.md](CONTRIBUTING.md) — How to contribute to the public surface.
+## Documentation Map
 
-## Repository Boundaries
+- [ARCHITECTURE.md](ARCHITECTURE.md) — public-safe architecture overview
+- [PUBLIC_STATUS.md](PUBLIC_STATUS.md) — current public claims, proof posture, and deferred areas
+- [addison-and-wbtsr.md](addison-and-wbtsr.md) — distinction between the system and the workflow
+- [CONTRIBUTING.md](CONTRIBUTING.md) — how to contribute without weakening the public boundary
 
-This repository is intentionally partial. It contains public-safe documentation, proof artifacts, and inert examples. It does not contain live private memory, operator-specific identity, private prompts or transcripts, or the full private development authority.
+## Repository Boundary
 
-Public material here should be read as a bounded representation of the project, not as the full internal system.
+This repository is intentionally partial.
+
+It contains public-safe explanation, bounded proof framing, and contribution guidance. It does not contain live private memory, operator-authored identity artifacts, internal prompts, private transcripts, or the full private development authority.
+
+Material here should be read as a bounded public mirror of the project, not as the full internal system.
 
 ## Status
 

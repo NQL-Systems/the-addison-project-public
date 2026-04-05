@@ -1,21 +1,25 @@
 # Addison Architecture
 
-**Status:** Public-facing architecture overview
+**Status:** Public-facing architecture overview  
 **Authority:** Public-safe technical orientation
 
 ---
 
 ## 1. Architectural Motivation
 
-Most AI systems keep continuity inside the conversation or inside the model. They can produce useful outputs in the moment, but they depend on fragile continuity layers — chat history, hidden model-side assumptions, loosely held context, and interfaces that blur system state with generated output.
+Most AI systems keep continuity inside the conversation or inside the model.
 
-Addison is built in the opposite direction. Its core idea is simple:
+That can produce useful outputs in the moment, but it also makes continuity fragile. State can blur into generated text, context can degrade across sessions, and the model can start acting like the hidden authority.
+
+Addison is built in the opposite direction.
+
+Its core architectural idea is simple:
 
 - the **system** owns memory and continuity
 - the **model** is a replaceable reasoning tool
 - the **human** remains the governing authority over meaningful action
 
-The architecture exists to make that idea concrete: a system that can be restarted, inspected, and reasoned about without depending on the model to hold shape.
+The architecture exists to make that idea concrete in a form that can be restarted, inspected, and reasoned about without depending on model-side memory.
 
 ---
 
@@ -37,13 +41,15 @@ Addison is built around a small set of rules that shape every layer of the syste
 
 ## 3. Layer Model
 
-Addison is structured as three layers with clear authority boundaries.
+Addison is structured as three layers with explicit authority boundaries.
 
 ### Layer 1 — Core Authority
 
-The daemon-centered core. It is responsible for persistent state, artifact-backed memory, context assembly, governed proposal/action boundaries, and protocol orchestration across connected runtimes.
+The daemon-centered core.
 
-This layer is where system truth is held and maintained.
+This layer is responsible for persistent state, artifact-backed memory, deterministic context assembly, governed action boundaries, and protocol orchestration across connected runtimes.
+
+This is where system truth is held and maintained.
 
 ### Layer 2 — Operator Runtimes
 
@@ -53,7 +59,9 @@ These runtimes are intentionally **non-authoritative**. They do not replace the 
 
 ### Layer 3 — Optional Presentation Adapters
 
-Subordinate surfaces that may enhance presentation or interaction. They can make the system easier or more expressive to use, but they are not required for the core system to remain coherent.
+Subordinate surfaces that may enhance expression or presentation.
+
+They can make the system easier or more expressive to use, but they are not required for the core system to remain coherent.
 
 ---
 
@@ -74,11 +82,11 @@ This keeps continuity outside the model and makes the system easier to inspect, 
 
 Addison uses an artifact-backed memory model with three tiers.
 
-**Canonical memory.** Durable system truth stored in persistent artifacts. These can represent identity and voice scaffolds, current system status, goals and decisions, and working state needed for continuity.
+**Canonical memory.** Durable system truth stored in persistent artifacts. These can include identity scaffolds, current system status, goals and decisions, and other continuity-bearing surfaces.
 
-**Non-canonical derived support.** Material derived from canonical artifacts for convenience or bounded reduction. Derived outputs do not replace canonical truth.
+**Non-canonical derived support.** Material derived from canonical artifacts for bounded reduction or convenience. Derived outputs do not replace canonical truth.
 
-**Volatile runtime state.** Runtime-local state that may exist for operator experience or temporary hydration. This is not the same thing as durable system memory.
+**Volatile runtime state.** Runtime-local state that may exist for temporary hydration or operator experience. This is not the same thing as durable system memory.
 
 ---
 
@@ -86,21 +94,40 @@ Addison uses an artifact-backed memory model with three tiers.
 
 Addison does not treat the model as the system.
 
-Context is built outside the model. The model receives prepared input, produces reasoning and output, and returns control to the system. The system remains responsible for memory, continuity, and authority.
+Context is built outside the model. The model receives prepared input, produces reasoning and output, and then returns control to the system.
 
-This distinction is one of the most important parts of the architecture. The goal is not "AI that just figures it out." The goal is a system where intelligence can be applied without surrendering control of state.
+The system remains responsible for memory, continuity, and authority.
+
+That distinction is one of the most important parts of the architecture. The goal is not to let the model silently become the system. The goal is to apply intelligence inside a structure where truth remains visible and owned.
 
 ---
 
 ## 7. Runtime Philosophy
 
-Addison is designed to be runtime-agnostic. Operator surfaces can change without changing the architectural role of the core system. A runtime may be fast and minimal, broader and more inspectable, or more performative and presentation-oriented.
+Addison is designed to be runtime-agnostic.
 
-The architectural contract stays the same: the daemon remains authoritative, artifacts remain the continuity layer, inference remains downstream of prepared context, and runtimes remain consumers rather than truth owners.
+Operator surfaces can change without changing the architectural role of the core system. A runtime may be minimal, broader and more inspectable, or more presentation-oriented.
+
+The architectural contract stays the same:
+
+- the daemon remains authoritative
+- artifacts remain the continuity layer
+- inference remains downstream of prepared context
+- runtimes remain consumers rather than truth owners
 
 ---
 
-## 8. What This Architecture Prioritizes
+## 8. Observed Public Proof Relationship
+
+This document is a public-safe architecture overview, not a proof dump.
+
+The current public surface supports a bounded claim that this architecture is not merely aspirational language. The repo's public proof and status surfaces are intended to show that the daemon-authoritative, artifact-backed, deterministic posture reflects a real system rather than a purely conceptual design.
+
+For the current public claim boundary, see [PUBLIC_STATUS.md](PUBLIC_STATUS.md).
+
+---
+
+## 9. What This Architecture Prioritizes
 
 This architecture is intentionally biased toward truthful structure over convenience. It prioritizes:
 
@@ -110,8 +137,8 @@ This architecture is intentionally biased toward truthful structure over conveni
 - deterministic memory and context handling
 - bounded human-governed operation
 
-The real system question Addison is trying to answer is not how to make AI more capable in the moment, but where truth lives, who owns continuity, how state is preserved, how boundaries stay visible, and how intelligence can be applied without becoming the hidden authority.
+The central system question Addison is trying to answer is not just how to make AI more capable in the moment. It is where truth lives, who owns continuity, how state is preserved, how boundaries stay visible, and how intelligence can be applied without becoming the hidden authority.
 
 ---
 
-This document is a public-safe architecture overview. It does not include live private memory, operator-specific identity content, internal prompts, or the full private development authority. See [README](README.md) for repository boundary details.
+This document is a public-safe architecture overview. It does not include live private memory, operator-specific identity content, internal prompts, or the full private development authority. See [README.md](README.md) for repository boundary details.
