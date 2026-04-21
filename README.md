@@ -1,5 +1,15 @@
 # Addison
 
+## ⚠️ Documentation Status
+
+I am currently behind on updating this public documentation.
+
+The project is evolving rapidly (daily changes, active exploration work), and this repo has not caught up yet. Some content here is now historical or does not reflect the current system.
+
+I will bring this documentation forward once the current development cycle stabilizes.
+
+For now, consider this a **lagging snapshot of the project**, not the current state.
+
 Addison is a local, daemon-backed state system built around persistent artifacts, deterministic context construction, and stateless inference.
 
 This repository is a bounded public surface for the project. It contains public-safe documentation, bounded proof framing, and contributor-facing orientation. It does not contain live private memory, operator-specific identity, or the full private development authority.
