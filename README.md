@@ -14,7 +14,7 @@ Addison is a local, daemon-backed state system built around persistent artifacts
 
 This repository is a bounded public surface for the project. It contains public-safe documentation, bounded proof framing, and contributor-facing orientation. It does not contain live private memory, operator-specific identity, or the full private development authority.
 
-You can find a devlog of this project in [The-Addison-Project-Devlogs](https://github.com/Zerolxgic/The-Addison-Project-Devlogs). This is my personal GitHub page.
+You can find a devlog of this project in [The-Addison-Project-Devlogs](https://github.com/Zerolxgic/The-Addison-Project-Devlogs). That is my personal GitHub page.
 
 ## Why This Repo Exists
 
